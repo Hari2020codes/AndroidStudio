@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ToggleButton
+        android:id="@+id/toggle_img_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/baseline_volume_up_24"
+        android:textOff=""
+        android:textOn="" />
+
+</FrameLayout>
+
+package com.example.toggle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+public class MainActivity extends AppCompatActivity {
+
+    ToggleButton toggle_img_btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);[span_9](start_span)[span_9](end_span)
+
+        toggle_img_btn = findViewById(R.id.toggle_img_btn);[span_10](start_span)[span_10](end_span)
+
+        toggle_img_btn.setOnClickListener(v -> {
+            if (toggle_img_btn.isChecked()) {
+                // Set volume up icon and show toast
+                toggle_img_btn.setBackgroundResource(R.drawable.baseline_volume_up_24);
+                Toast.makeText(getApplicationContext(), "Volume Up.", Toast.LENGTH_SHORT).show();[span_11](start_span)[span_11](end_span)
+            } else {
+                // Set volume mute icon and show toast
+                toggle_img_btn.setBackgroundResource(R.drawable.baseline_volume_mute_24);
+                Toast.makeText(getApplicationContext(), "Volume Mute.", Toast.LENGTH_SHORT).show();[span_12](start_span)[span_12](end_span)
+            }
+        });
+    }
+}
+
